@@ -4,7 +4,7 @@ public class Prenda {
     TipoPrenda prenda;
 
 
-    // Le delego al Estado que calcule el precio de la prenda
+    // Le delego al estado que calcule el precio de la prenda
     double precioPrenda() {
         return estado.precioTotal(precioBase);
     }

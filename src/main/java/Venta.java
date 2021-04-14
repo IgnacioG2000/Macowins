@@ -4,19 +4,23 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Venta {
-    List<Prenda> ventasDePrendas = new ArrayList();
+    List<Prenda> prendasVendidas = new ArrayList<>(); //
     Date fecha;
 
     int cantidadVentas() {
-        return ventasDePrendas.size();
+        return prendasVendidas.size();
     }
 
     Venta(Date unaFecha) {
         fecha = unaFecha;
     }
 
+    Boolean esDeEstaFecha(Date unaFecha) {
+        return fecha == unaFecha;
+    }
+
     double totalVenta() {
-       return ventasDePrendas
+       return prendasVendidas
         .stream()
         .map(Prenda::precioPrenda)
         .collect(Collectors.toList())

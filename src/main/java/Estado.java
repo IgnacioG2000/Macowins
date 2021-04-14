@@ -1,12 +1,12 @@
 public interface Estado {
 
-    double precioTotal(double precioBase);
+    double precioTotal(double precioPrenda);
 }
 
 class Nueva implements Estado {
 
-    public double precioTotal(double precioBase) {
-        return precioBase;
+    public double precioTotal(double precioPrenda) {
+        return precioPrenda;
     }
 }
 
@@ -17,14 +17,16 @@ class Promocion implements Estado {
         valorFijo = descuento;
     }
 
-    public double precioTotal(double precioBase) {
-        return precioBase - valorFijo;
+    public double precioTotal(double precioPrenda) {
+
+        return precioPrenda - valorFijo;
     }
 }
 
 class Liquidacion implements Estado {
 
-    public double precioTotal(double precioBase) {
-        return precioBase * 0.5;
+    public double precioTotal(double precioPrenda) {
+
+        return precioPrenda * 0.5;
     }
 }
