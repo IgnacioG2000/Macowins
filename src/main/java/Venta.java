@@ -1,12 +1,24 @@
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Venta {
-    List<TipoPrenda> listaVentas = newArrayList();
+    List<Prenda> ventasDePrendas = new ArrayList();
     Date fecha;
 
     int cantidadVentas() {
-        return listaVentas.size();
+        return ventasDePrendas.size();
     }
 
     Venta(Date unaFecha) {
         fecha = unaFecha;
+    }
+
+    double totalVenta() {
+        ventasDePrendas
+        .stream()
+        .map(Prenda::precioPrenda)
+        .collect(Collectors.toList() //VER SUM
     }
 }
