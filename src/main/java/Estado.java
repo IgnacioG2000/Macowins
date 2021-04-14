@@ -1,25 +1,30 @@
-public class Estado {
+public interface Estado {
 
+    double precioTotal(double precioBase);
 }
 
-class Nueva extends Estado {
+class Nueva implements Estado {
 
-    double precioTotal(double precioBase) {
+    public double precioTotal(double precioBase) {
         return precioBase;
     }
 }
 
-class Promocion extends Estado {
+class Promocion implements Estado {
     double valorFijo;
 
-    double precioTotal(double precioBase) {
+    Promocion(double descuento) {
+        valorFijo = descuento;
+    }
+
+    public double precioTotal(double precioBase) {
         return precioBase - valorFijo;
     }
 }
 
-class Liquidacion extends Estado {
+class Liquidacion implements Estado {
 
-    double precioTotal(double precioBase) {
+    public double precioTotal(double precioBase) {
         return precioBase * 0.5;
     }
 }
