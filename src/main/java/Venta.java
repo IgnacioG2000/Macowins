@@ -16,9 +16,32 @@ public class Venta {
     }
 
     double totalVenta() {
-        ventasDePrendas
+       return ventasDePrendas
         .stream()
         .map(Prenda::precioPrenda)
-        .collect(Collectors.toList() //VER SUM
+        .collect(Collectors.toList())
+        .stream()
+        .mapToDouble(Double::doubleValue)
+        .sum();
+    }
+}
+// Heredo de Venta ya que tiene el mismo comportamiento excepto el calculo del precioTotal que cambia por un recargo
+class VentaTarjeta extends Venta {
+    int cantidadCuotas;
+    double coeficientePorPagoConTarjeta;
+
+    VentaTarjeta(int cuotas, double coeficienteTarjeta, Date otraFecha){
+        super(otraFecha);
+        cantidadCuotas = cuotas;
+        coeficientePorPagoConTarjeta = coeficienteTarjeta;
+    }
+
+    double recargoPorTarjeta() {
+        return cantidadCuotas * coeficientePorPagoConTarjeta + 0.01;
+    }
+
+    @Override
+    double totalVenta() {
+        return this.recargoPorTarjeta() + super.totalVenta();
     }
 }
