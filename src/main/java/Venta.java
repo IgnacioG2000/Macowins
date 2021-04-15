@@ -32,16 +32,16 @@ public class Venta {
 // Heredo de Venta ya que tiene el mismo comportamiento excepto el calculo del precioTotal que cambia por un recargo
 class VentaTarjeta extends Venta {
     int cantidadCuotas;
-    double coeficientePorPagoConTarjeta;
+    double coeficienteTarjeta;
 
-    VentaTarjeta(int cuotas, double coeficienteTarjeta, Date otraFecha){
+    VentaTarjeta(int cuotas, double unCoeficienteTarjeta, Date otraFecha){
         super(otraFecha);
         cantidadCuotas = cuotas;
-        coeficientePorPagoConTarjeta = coeficienteTarjeta;
+        coeficienteTarjeta = unCoeficienteTarjeta;
     }
 
     double recargoPorTarjeta() {
-        return cantidadCuotas * coeficientePorPagoConTarjeta + 0.01;
+        return cantidadCuotas * coeficienteTarjeta + 0.01;
     }
 
     @Override
